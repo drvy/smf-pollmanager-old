@@ -1,0 +1,67 @@
+﻿|
+|----------- dM SMF Poll Manager -----------|
+|
+| Versión: 2.0
+|
+| Descripcion:
+|  Una simple herramienta que te permite ver quien,
+|  cuando y como ha votado en una encuesta, en el popular 
+|  sistema (cms) de foros SMF (Simple Machines Forum).
+|
+| Licencia:
+|  Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+|
+| Terminos de Uso:
+|  Esta herramienta no tiene nada que ver con SMF. No es oficial, y tampoco cumple
+|  la función de un mod (plugin). Lo único que hace es obtener datos de la base
+|  de datos donde esta instalado SMF.
+|
+|  Esta herramienta puede suponer una falta a la privacidad y libertad de los usuarios
+|  en el foro. Si eres el administrador y/o un usuario capaz de ejecutar esta herramienta
+|  en tu servidor, deberías informar a tus usuarios sobre esto.
+|
+|  En ningun momento, el autor de esta herramienta se hace responsable, por los daños,
+|  malfunciones, o perdidas que puede generar el uso de esta herramienta.
+|
+| Web: http://www.drvy.net
+| Twitter: drvymonkey
+| E-Mail: bad.stupid.monkey@gmail.com
+|
+| ##############
+|
+| Requisitos:
+|  -Base de datos: MySql
+|  -PHP 5.x.x
+|  -Version de SMF: 2.x.x
+|
+| Configuración:
+|
+| $dm_smf_settings, es una variable que contiene la ruta del archivo Settings.php de smf.
+| Para una instalacion sin problemas, es recomendable poner el pollmanager.php en el mismo
+| directorio que el archivo Settings.php de SMF. En tal caso, esta variable se debe dejar vacia.
+| 
+| $dm_redirect_bots, es una variable que admite true o false. En caso de true, redireccionara
+| a los bots como GoogleBot al Indice del foro.
+|
+| $dm_check_smf_version, es una variable que admite true o false. En caso de true, comprobara
+| el fichero Settings.php con fopen para asegurarse de que la version de SMF es 2.x. Se debe dejar
+| en false SOLO si da problemas con los permisos. Utilizar esta herramienta en un foro 1.x supone
+| la desfuncion o en el peor caso, la perdida de informacion.
+|
+| $active_lvd, es una variable que admite true o false. LVD es un sistema de deteccion de votos
+| fraudolentos (legal vote detector). Esta funcion comprueba la base de datos para comprobar si
+| el votante tiene la misma ip que otro usuario. Tambien informa si el usuario se registrado
+| en los 2 dias anteriores.
+|
+| $dm_users, es un array. Permite definir usuarios con capacidad de uso del sistema.
+| se recomienda borrar el usuario demo puesto que puede suponer una falta de seguridad.
+| En si, el array debe contener solo "name" -> nombre, "password" -> contraseña y
+| prev-> previlegios.
+| El nombre y la contraseña pueden ser de cualquier caracter parseable mediante POST menos el caracter
+| " ' " que debe ser escapado con \. Ejemplo: 'name'=>'mi\'nombre'.
+| prev, puede contener solo read o all. En caso de contener otra cosa se tomara como read.
+| prev, permite limitar a un usuario a solo poder consultar las encuestas, SIN PODER BORRAR ningun voto.
+|
+| ----------------------------------------------------
+| Creado por: Dragomir Valentinov Yordanov. aka: Drvy, DrvyMonkey.
+| ----------------------------------------------------
